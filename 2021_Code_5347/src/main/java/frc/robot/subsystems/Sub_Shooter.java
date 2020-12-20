@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -14,11 +15,24 @@ import frc.robot.Constants;
 
 
 public class Sub_Shooter extends SubsystemBase {
-  //ask for talen when called
+  //sets talon port for shooter flywheels
   private final TalonSRX leftFlyWheel = new TalonSRX(Constants.leftFlyWheelPort);
   private final TalonSRX rightFlyWheel = new TalonSRX(Constants.rightFlyWheelPort);
+
+
+public void stop() {
+  leftFlyWheel.set(ControlMode.PercentOutput, 0);
+  rightFlyWheel.set(ControlMode.PercentOutput, 0);
+}
+
+public void spinUp() {
+  leftFlyWheel.set(ControlMode.PercentOutput, 0.9);
+  rightFlyWheel.set(ControlMode.PercentOutput, 0.9);
+}
+
   public Sub_Shooter() {
 
+  
   }
 
   @Override
