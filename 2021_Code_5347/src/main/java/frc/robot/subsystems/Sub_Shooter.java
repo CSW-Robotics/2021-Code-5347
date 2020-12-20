@@ -9,10 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+
 public class Sub_Shooter extends SubsystemBase {
-  /**
-   * Creates a new Sub_Shooter.
-   */
+  //ask for talen when called
+  private final TalonSRX leftFlyWheel = new TalonSRX(Constants.leftFlyWheelPort);
+  private final TalonSRX rightFlyWheel = new TalonSRX(Constants.rightFlyWheelPort);
   public Sub_Shooter() {
 
   }
