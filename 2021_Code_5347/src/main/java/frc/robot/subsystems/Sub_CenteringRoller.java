@@ -12,11 +12,11 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class Sub_CenteringRollers extends SubsystemBase {
+public class Sub_CenteringRoller extends SubsystemBase {
   
   //sets talon port for centering rollers
   private final TalonSRX roller = new TalonSRX(Constants.rollerPort);
-  public Sub_CenteringRollers() {
+  public Sub_CenteringRoller() {
 
   }
   //sets roller speed to 100%
