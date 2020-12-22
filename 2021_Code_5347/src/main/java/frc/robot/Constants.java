@@ -19,4 +19,5 @@ public final class Constants {
     public static int leftFlyWheelPort = 9;
     public static int rightFlyWheelPort = 5;
     public static int rollerPort = 6;
+    public static int elevatorPort = 0;
 }
