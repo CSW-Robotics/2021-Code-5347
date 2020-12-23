@@ -19,11 +19,12 @@ public class Sub_CenteringRoller extends SubsystemBase {
   public Sub_CenteringRoller() {
 
   }
-  //sets roller speed to 100% (WHEEEEE!!!! =D )
+  //sets roller speed to 100% 
+  //pushes available dodgeballs into the flywheels
   public void startRoller(){
     roller.set(ControlMode.PercentOutput, 1);
   }
-  //set roller speed to 0% (stop. stOP. I SAID STOP!!!)
+  //set roller speed to 0% 
   public void stopRoller(){
     roller.set(ControlMode.PercentOutput, 0);
   }

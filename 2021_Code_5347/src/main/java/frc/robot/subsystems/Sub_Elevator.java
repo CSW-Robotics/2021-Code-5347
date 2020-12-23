@@ -23,10 +23,12 @@ public void stop() {
   elevator.set(ControlMode.PercentOutput, 0);
 }
   //Starts motor (sets speed to 100%)
+  //pulls the elevator up at full speed
 public void pullElevUp() {
   elevator.set(ControlMode.PercentOutput, 1);
 }
   //starts motor (sets speed to -100%)
+  //lets the elevator down at full speed
 public void letElevDown(){
   elevator.set(ControlMode.PercentOutput, -1);
 }
