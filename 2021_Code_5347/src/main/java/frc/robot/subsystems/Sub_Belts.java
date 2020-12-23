@@ -15,22 +15,19 @@ import frc.robot.Constants;
 
 
 public class Sub_Shooter extends SubsystemBase {
-  //sets talon port for shooter flywheels
-  private final TalonSRX leftFlyWheel = new TalonSRX(Constants.leftFlyWheelPort);
-  private final TalonSRX rightFlyWheel = new TalonSRX(Constants.rightFlyWheelPort);
+  //sets talon port for Belts
+  private final TalonSRX spinBelts = new TalonSRX(Constants.spinBeltsPort);
 
-  //Stops motore (sets speed to 0%)
+  //Stops motor (sets speed to 0%)
 public void stop() {
-  leftFlyWheel.set(ControlMode.PercentOutput, 0);
-  rightFlyWheel.set(ControlMode.PercentOutput, 0);
+  spinBelts.set(ControlMode.PercentOutput, 0);
 }
-  //Starts motore (sets speed to 90%)
+  //Starts motor (sets speed to 50%)
 public void spinUp() {
-  leftFlyWheel.set(ControlMode.PercentOutput, 0.9);
-  rightFlyWheel.set(ControlMode.PercentOutput, 0.9);
+  spinBelts.set(ControlMode.PercentOutput, .5);
 }
 
-  public Sub_Shooter() {
+  public Sub_Belts() {
 
   
   }
