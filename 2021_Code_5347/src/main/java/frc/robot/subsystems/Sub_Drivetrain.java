@@ -14,38 +14,25 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 
-public class Sub_Drivetrain extends SubsystemBase {
-  //sets talon ports for left wheels and right wheels
-  private final TalonSRX leftWheels = new TalonSRX(Constants.leftWheelsPort);
-  private final TalonSRX rightWheels = new TalonSRX(Constants.rightWheelsPort);
+public class Sub_Drivettrain extends SubsystemBase {
+  //sets talon port for left wheel motors and right wheel motors
+  private final TalonSRX leftWheels1 = new TalonSRX(Constants.leftWheels1Port);
+  private final TalonSRX leftWheels2 = new TalonSRX(Constants.leftWheels2Port);
+  private final TalonSRX rightWheels1 = new TalonSRX(Constants.rightWheels1Port);
+  private final TalonSRx rightWheels2 = new TalonSRX(Canstants.rightWheels2Port);
+  //sets talon port for gyro (none)
+  private final AHRS gyro = new AHRS(SPI.Port.kMXP);
+  //left and right Speed Controller Groups
+  private final SpeedControllerGroup leftSpeConGru = new SpeedControllerGroup(leftWheels1,leftWheels2);
+  private final SpeedControllerGroup rightSpeConGru = new SpeedControllerGroup(rightWheels1,rightWheels2);
 
-  //Stops motor (sets speed for both sides to 0%)
-public void stop() {
-  leftWheels.set(ControlMode.PercentOutput, 0);
-  rightWheels.set(ControlMode.PercentOutput, 0);
-}
-  //Starts motor (sets speed for both sides to 75%)
-public void goForward() {
-  leftWheels.set(ControlMode.PercentOutput, 0.75);
-  rightWheels.set(ControlMode.PercentOutput, 0.75);
-}
-  //makes the left wheels turn backwards, makes the right wheels turn forwards
-public void turnLeft(){
-  leftWheels.set(ControlMode.PercentOutput, -0.75);
-  rightWheels.set(ControlMode.PercentOutput, 0.75);
-}
-  //makes the left wheels turn forwards, makes the right wheels turn backwards
-public void turnRight(){
-  leftWheels.set(ControlMode.PercentOutput, 0.75);
-  rightWheels.set(ControlMode.PercentOutput, -0.75);
-}
-  //makes all wheels turn backwards
-public void goBackwards(){
-  leftWheels.set(ControlMode.PercentOutput, -0.75);
-  rightWheels.set(ControlMode.PercentOutput, -0.75);
-}
+  private final DifferentialDrive TankDrive = new DifferentialDrive(leftSpeedConGru,rightSpeedConGru);
 
-  public Sub_Shooter() {
+  public void drivingAround(double forwardSpeed, double rotationRate){
+    TankDrive.arcadeDrive(forwardSpeed, rotationRate);
+  }
+
+  public Sub_Drivetrain() {
 
   
   }
