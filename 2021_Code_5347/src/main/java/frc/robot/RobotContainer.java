@@ -27,12 +27,15 @@ public class RobotContainer {
 
   private final GenericHID m_handheldController = new GenericHID(Constants.handheldControllerPort);
 
+  private final Sub_Drivetrain m_Drivetrain = new Sub_Drivetrain();
+
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    m_Drivetrain.setDefaultCommand(new Cmd_Drivetrain(()->m_handheldController.getRawAxis(1),()->getRawAxis(2),m_Drivetrain));
   }
 
   /**
