@@ -28,7 +28,7 @@ public class Sub_Drivettrain extends SubsystemBase {
 
   private final DifferentialDrive TankDrive = new DifferentialDrive(leftSpeedConGru,rightSpeedConGru);
 
-  public void drivingAround(double forwardSpeed, double rotationRate){
+  public void drivingNow(double forwardSpeed, double rotationRate){
     TankDrive.arcadeDrive(forwardSpeed, rotationRate);
   }
 
