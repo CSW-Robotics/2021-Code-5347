@@ -23,6 +23,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
+  private final Sub_Belts m_Belts = new Sub_Belts();
+
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   private final GenericHID m_handheldController = new GenericHID(Constants.handheldControllerPort);
@@ -42,6 +44,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    new JoystickButton(m_handheldController,7).whileHeld(new Cmd_Belts(m_Belts));
   }
 
 
