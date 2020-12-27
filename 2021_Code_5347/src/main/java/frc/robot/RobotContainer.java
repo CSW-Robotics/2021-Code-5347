@@ -14,7 +14,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
- * This class is where the bulk of the robot should be declared.  Since Command-based is a
+ * This class is where the bulk owf the robot should be declared.  Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
  * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
  * (including subsystems, commands, and button mappings) should be declared here.
@@ -25,7 +25,7 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-
+  private final GenericHID m_handheldController = new GenericHID(Constants.handheldControllerPort);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
