@@ -9,20 +9,22 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
+import edu.wpi.first.wpilibj.SpeedController; 
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 
 public class Sub_Drivettrain extends SubsystemBase {
-  //sets talon port for left wheel motors and right wheel motors
+  //sets tal on port for left wheel motors and right wheel motors
   private final TalonSRX leftWheels1 = new TalonSRX(Constants.leftWheels1Port);
   private final TalonSRX leftWheels2 = new TalonSRX(Constants.leftWheels2Port);
   private final TalonSRX rightWheels1 = new TalonSRX(Constants.rightWheels1Port);
-  private final TalonSRx rightWheels2 = new TalonSRX(Canstants.rightWheels2Port);
+  private final TalonSRX rightWheels2 = new TalonSRX(Constants.rightWheels2Port);
   //sets talon port for gyro (none)
-  private final AHRS gyro = new AHRS(SPI.Port.kMXP);
+  private final AHRS gyro = new AHRS(1);
   //left and right Speed Controller Groups
+  //SPI.Port.kMXP
   private final SpeedControllerGroup leftSpeConGru = new SpeedControllerGroup(leftWheels1,leftWheels2);
   private final SpeedControllerGroup rightSpeConGru = new SpeedControllerGroup(rightWheels1,rightWheels2);
 
