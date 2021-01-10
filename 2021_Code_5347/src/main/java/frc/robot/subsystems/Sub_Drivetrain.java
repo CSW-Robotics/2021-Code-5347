@@ -8,27 +8,29 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.SpeedController; 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 
-public class Sub_Drivettrain extends SubsystemBase {
+public class Sub_Drivetrain extends SubsystemBase {
   //sets tal on port for left wheel motors and right wheel motors
-  private final TalonSRX leftWheels1 = new TalonSRX(Constants.leftWheels1Port);
-  private final TalonSRX leftWheels2 = new TalonSRX(Constants.leftWheels2Port);
-  private final TalonSRX rightWheels1 = new TalonSRX(Constants.rightWheels1Port);
-  private final TalonSRX rightWheels2 = new TalonSRX(Constants.rightWheels2Port);
+  private final WPI_TalonSRX leftWheels1 = new WPI_TalonSRX(Constants.leftWheels1Port);
+  private final WPI_TalonSRX leftWheels2 = new WPI_TalonSRX(Constants.leftWheels2Port);
+  private final WPI_TalonSRX rightWheels1 = new WPI_TalonSRX(Constants.rightWheels1Port);
+  private final WPI_TalonSRX rightWheels2 = new WPI_TalonSRX(Constants.rightWheels2Port);
   //sets talon port for gyro (none)
-  private final AHRS gyro = new AHRS(1);
+  //private final AHRS gyro = new AHRS(1);
   //left and right Speed Controller Groups
   //SPI.Port.kMXP
+
   private final SpeedControllerGroup leftSpeConGru = new SpeedControllerGroup(leftWheels1,leftWheels2);
   private final SpeedControllerGroup rightSpeConGru = new SpeedControllerGroup(rightWheels1,rightWheels2);
 
-  private final DifferentialDrive TankDrive = new DifferentialDrive(leftSpeedConGru,rightSpeedConGru);
+  private final DifferentialDrive TankDrive = new DifferentialDrive(leftSpeConGru,rightSpeConGru);
 
   public void drivingNow(double forwardSpeed, double rotationRate){
     TankDrive.arcadeDrive(forwardSpeed, rotationRate);

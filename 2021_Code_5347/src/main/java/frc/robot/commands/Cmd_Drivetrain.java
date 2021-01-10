@@ -7,8 +7,10 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Sub_Drivetrain;
+import java.util.function.DoubleSupplier;
 
 //creates and names the command
 public class Cmd_Drivetrain extends CommandBase {
@@ -17,7 +19,9 @@ public class Cmd_Drivetrain extends CommandBase {
   private final DoubleSupplier m_forwardSpeed;
   private final DoubleSupplier m_rotationRate;
 
-  public Cmd_Drivetrain(Sub_Drivetrain subsystem) {
+  public Cmd_Drivetrain(Sub_Drivetrain subsystem, DoubleSupplier rotationRate, DoubleSupplier forwardSpeed) {
+    m_forwardSpeed = forwardSpeed;
+    m_rotationRate = rotationRate;
     m_Drivetrain = subsystem;
     addRequirements(m_Drivetrain);
   }
