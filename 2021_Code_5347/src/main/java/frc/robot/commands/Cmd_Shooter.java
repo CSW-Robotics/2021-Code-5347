@@ -3,24 +3,24 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
-
+import frc.robot.subsystems.Sub_Shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Sub_Centering Roller;
 
-public class Cmd_CenteringRoller extends CommandBase {
+public class Cmd_Shooter extends CommandBase {
+  /** Creates a new Cmd_Shooter. */
 
-  private final Sub_CenteringRoller m_CenteringRoller;
-  /** Creates a new Cmd_CenteringRoller. */
-  public Cmd_CenteringRoller(Sub_CenteringRoller subsystem) {
-    m_CenteringRoller = subsystem;
+private final Sub_Shooter m_Shooter;
+
+  public Cmd_Shooter(Sub_Shooter Subsystem) {
+    m_Shooter = Subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_CenteringRoller);
+    addRequirements(m_Shooter);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_CenteringRoller.startRoller();
+    m_Shooter.spinUp();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -30,7 +30,7 @@ public class Cmd_CenteringRoller extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_CenteringRoller.stopRoller();
+    m_Shooter.stop();
   }
 
   // Returns true when the command should end.
