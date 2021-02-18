@@ -22,6 +22,7 @@ import frc.robot.commands.Cmd_Shooter;
 import frc.robot.commands.Cmd_Elevator;
 import frc.robot.commands.Cmd_Drivetrain;
 import frc.robot.commands.Cmd_Belts;
+import frc.robot.commands.Cmd_CenteringRoller;
 import frc.robot.commands.Cmd_Drivetrain;
 
 
@@ -42,7 +43,7 @@ public class RobotContainer {
   private final Sub_CenteringRoller m_centerroller = new Sub_CenteringRoller();
   private final Sub_Belts m_belts = new Sub_Belts();
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_ExampleSubsystem);
-  private final Sub_Drivetrain m_Drivetrain = new Sub_Drivetrain();
+  
 
 
   
@@ -54,7 +55,7 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(() -> m_LogibleghGenericHID.getRawAxis(1), () -> m_LogibleghGenericHID.getRawAxis(2), m_drivetrain));
+    //m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(subsystem, rotationRate, forwardSpeed);
     // Configure the button bindings
     
     configureButtonBindings();
@@ -70,7 +71,7 @@ public class RobotContainer {
     new JoystickButton(m_controller, 1).whileHeld(new Cmd_Shooter(m_shooter));
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Elevator(m_elevator));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
-    
+    new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
 
   }
 
