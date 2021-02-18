@@ -25,4 +25,5 @@ public final class Constants {
     public static int leftWheels2Port = 2;
     public static int rightWheels1Port = 3;
     public static int rightWheels2Port = 4;
+    public static int beaverTailPort = 7;
 }
