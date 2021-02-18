@@ -22,6 +22,8 @@ import frc.robot.commands.Cmd_Shooter;
 import frc.robot.commands.Cmd_Elevator;
 import frc.robot.commands.Cmd_Drivetrain;
 import frc.robot.commands.Cmd_Belts;
+import frc.robot.commands.Cmd_CenteringRoller;
+import frc.robot.commands.Cmd_Drivetrain;
 
 
 
@@ -33,17 +35,19 @@ import frc.robot.commands.Cmd_Belts;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final ExampleSubsystem m_ExampleSubsystem = new ExampleSubsystem();
   private final XboxController m_controller = new XboxController(Constants.ctrlPort);
   private final Sub_Shooter m_shooter = new Sub_Shooter();
   private final Sub_Elevator m_elevator = new Sub_Elevator();
   private final Sub_Drivetrain m_drivetrain = new Sub_Drivetrain();
   private final Sub_CenteringRoller m_centerroller = new Sub_CenteringRoller();
   private final Sub_Belts m_belts = new Sub_Belts();
+  private final ExampleCommand m_autoCommand = new ExampleCommand(m_ExampleSubsystem);
+  
 
 
   
 
-  
 
 
 
@@ -51,6 +55,7 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
+    //m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(subsystem, rotationRate, forwardSpeed);
     // Configure the button bindings
     
     configureButtonBindings();
@@ -66,6 +71,7 @@ public class RobotContainer {
     new JoystickButton(m_controller, 1).whileHeld(new Cmd_Shooter(m_shooter));
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Elevator(m_elevator));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
+    new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
 
   }
 
@@ -75,7 +81,7 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public ExampleCommand getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return m_autoCommand;
     
