@@ -58,7 +58,7 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(m_drivetrain, m_controller.getRawAxis(2), 1.0);
+    m_drivetrain.drivingNow(m_drivestick.getRawAxis(1), m_drivestick.getRawAxis(5));
     // Configure the button bindings
     
     configureButtonBindings();
@@ -75,7 +75,7 @@ public class RobotContainer {
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Elevator(m_elevator));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
     new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
-    new JoystickButton(m_controller, Axis).
+    
   }
 
 
