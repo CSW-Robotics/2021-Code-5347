@@ -21,7 +21,7 @@ public class Cmd_Drivetrain extends CommandBase {
   private final DoubleSupplier m_rotationRate;
 
 
-  public Cmd_Drivetrain(Sub_Drivetrain subsystem, DoubleSupplier rotationRate, DoubleSupplier forwardSpeed) {
+  public Cmd_Drivetrain(Sub_Drivetrain subsystem, DoubleSupplier forwardSpeed, DoubleSupplier rotationRate) {
     m_forwardSpeed = forwardSpeed;
     m_rotationRate = rotationRate;
     m_Drivetrain = subsystem;

@@ -8,7 +8,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Axis;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -36,6 +38,7 @@ import frc.robot.commands.Cmd_Drivetrain;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_ExampleSubsystem = new ExampleSubsystem();
+  private final Joystick m_drivestick = new Joystick(Constants.joyPort);
   private final XboxController m_controller = new XboxController(Constants.ctrlPort);
   private final Sub_Shooter m_shooter = new Sub_Shooter();
   private final Sub_Elevator m_elevator = new Sub_Elevator();
@@ -55,7 +58,7 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    //m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(subsystem, rotationRate, forwardSpeed);
+    m_drivetrain.setDefaultCommand(new Cmd_Drivetrain(m_drivetrain, m_controller.getRawAxis(2), 1.0);
     // Configure the button bindings
     
     configureButtonBindings();
@@ -72,7 +75,7 @@ public class RobotContainer {
     new JoystickButton(m_controller, 2).whileHeld(new Cmd_Elevator(m_elevator));
     new JoystickButton(m_controller, 3).whileHeld(new Cmd_Belts(m_belts));
     new JoystickButton(m_controller, 4).whileHeld(new Cmd_CenteringRoller(m_centerroller));
-
+    new JoystickButton(m_controller, Axis).
   }
 
 
